@@ -2,7 +2,8 @@
 
 A full-stack web application that replicates the core features of BookMyShow, allowing users to browse movies, view details, book tickets, and manage their bookings. Built using Node.js, Express, MongoDB, and EJS templating.
 
-Deployment Link here :- https://pr-bookmyshow-clone-node-js.onrender.com/
+Deployment Link here : 
+https://pr-bookmyshow-clone-node-js.onrender.com/
 ---
 # Output
 
