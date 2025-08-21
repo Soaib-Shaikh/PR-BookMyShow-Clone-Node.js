@@ -91,7 +91,7 @@ A full-stack web application that replicates the core features of BookMyShow, al
 
 1. **Clone the repository**
    ```sh
-   git clone <repo-url>
+   git clone <https://github.com/Soaib-Shaikh/PR-BookMyShow-Clone-Node.js.git>
    cd PR-BookMyShow-Clone-Node.js
    ```
 2. **Install dependencies**
