@@ -1,0 +1,78 @@
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light px-4">
+  <div class="container-fluid">
+    <!-- Logo -->
+    <a class="navbar-brand fw-bold" href="/">
+      <img src="/images/logo-1.webp" alt="Logo" height="50" class="mx-5">
+    </a>
+
+    <!-- Search Bar -->
+    <form class="d-flex mx-auto w-50" action="/movies/search" method="get">
+      <div class="input-group">
+        <span class="input-group-text bg-white border-end-0">
+          <i class="bi bi-search text-muted"></i>
+        </span>
+        <input type="search" class="form-control border-start-0" name="query"
+          placeholder="Search for Movies, Events, Plays, Sports and Activities" aria-label="Search" required>
+      </div>
+    </form>
+
+    <!-- Right Section -->
+    <div class="d-flex align-items-center">
+      <!-- Location Dropdown -->
+      <div class="dropdown me-3">
+        <a class="dropdown-toggle text-dark text-decoration-none" href="#" role="button" data-bs-toggle="dropdown"
+          aria-expanded="false">
+          Navsari
+        </a>
+        <ul class="dropdown-menu">
+          <li><a class="dropdown-item" href="#">Mumbai</a></li>
+          <li><a class="dropdown-item" href="#">Delhi</a></li>
+          <li><a class="dropdown-item" href="#">Bangalore</a></li>
+          <li><a class="dropdown-item" href="#">Ahmedabad</a></li>
+          <li><a class="dropdown-item" href="#">Navsari</a></li>
+          <li><a class="dropdown-item" href="#">Surat</a></li>
+        </ul>
+      </div>
+
+      <!-- Sign In Button -->
+      <% if (user && user.username) { %>
+        <span>Welcome, <%= user.username %>!</span>
+        <a href="/auth/logout" class="btn btn-outline-danger ms-2">Logout</a>
+      <% } else { %>
+        <a href="#" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#authModal">Sign In</a>
+      <% } %>
+
+      <!-- Menu Icon -->
+      <button class="btn btn-light border-0">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- Secondary Menu -->
+<div class="bg-light border-top py-2">
+  <div class="container d-flex justify-content-between">
+    <!-- Left Menu -->
+    <div class="d-flex gap-4">
+      <a href="/movies" class="text-dark text-decoration-none">Movies</a>
+      <a href="#" class="text-dark text-decoration-none">Stream</a>
+      <a href="#" class="text-dark text-decoration-none">Events</a>
+      <a href="#" class="text-dark text-decoration-none">Plays</a>
+      <a href="#" class="text-dark text-decoration-none">Sports</a>
+      <a href="#" class="text-dark text-decoration-none">Activities</a>
+    </div>
+
+    <!-- Right Menu -->
+    <div class="d-flex gap-4">
+      <a href="#" class="text-dark text-decoration-none">ListYourShow</a>
+      <a href="#" class="text-dark text-decoration-none">Corporates</a>
+      <a href="#" class="text-dark text-decoration-none">Offers</a>
+      <a href="#" class="text-dark text-decoration-none">Gift Cards</a>
+    </div>
+  </div>
+</div>
+
+<!-- Bootstrap Icons -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">

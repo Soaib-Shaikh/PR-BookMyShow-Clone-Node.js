@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <title>BookMyShow Auth Modal</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+  <!-- Custom Styles -->
+  <style>
+    /* Modal Design */
+    .modal-content {
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.4);
+      border: none;
+      animation: fadeIn 0.3s ease-in-out;
+      background: #fff;
+    }
+
+    /* Modal Header */
+    .modal-header {
+      background: linear-gradient(135deg, #d81b60, #ff3d3d);
+      color: #fff;
+      border-bottom: none;
+      padding: 18px;
+    }
+
+    .modal-title {
+      font-weight: bold;
+      font-size: 1.4rem;
+      letter-spacing: 0.5px;
+    }
+
+    .btn-close {
+      background-color: #fff;
+      opacity: 0.8;
+      border-radius: 50%;
+    }
+
+    /* Nav Pills Styling */
+    .nav-pills {
+      background-color: #f5f5f5;
+      padding: 5px;
+      border-radius: 50px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .nav-pills .nav-link {
+      border-radius: 30px;
+      padding: 10px 25px;
+      color: #555;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+
+    .nav-pills .nav-link.active {
+      background: linear-gradient(135deg, #d81b60, #ff3d3d);
+      color: #fff;
+      box-shadow: 0 4px 15px rgba(216,27,96,0.3);
+    }
+    
+    .form-control:focus {
+      border-color: #d81b60;
+      background-color: #fff;
+      box-shadow: 0 0 8px rgba(216,27,96,0.4);
+    }
+
+    /* Buttons */
+    .btn-custom {
+      border-radius: 30px;
+      font-weight: 600;
+      padding: 12px;
+      font-size: 1.05rem;
+      transition: 0.3s ease-in-out;
+      border: none;
+    }
+
+    .btn-login {
+      background: linear-gradient(135deg, #d81b60, #ff3d3d);
+      color: #fff;
+      box-shadow: 0 4px 15px rgba(216,27,96,0.4);
+    }
+
+    .btn-login:hover {
+      background: linear-gradient(135deg, #b31249, #e43030);
+      transform: translateY(-2px);
+    }
+
+    .btn-signup {
+      background: linear-gradient(135deg, #2196f3, #21cbf3);
+      color: #fff;
+      box-shadow: 0 4px 15px rgba(33,150,243,0.4);
+    }
+
+    .btn-signup:hover {
+      background: linear-gradient(135deg, #1976d2, #00bcd4);
+      transform: translateY(-2px);
+    }
+
+    /* Forgot Password */
+    .forgot-link {
+      display: block;
+      text-align: center;
+      margin-top: 10px;
+      font-size: 0.95rem;
+      color: #d81b60;
+      text-decoration: none;
+    }
+
+    .forgot-link:hover {
+      text-decoration: underline;
+    }
+
+    /* Animation */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.95); }
+      to { opacity: 1; transform: scale(1); }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Auth Modal -->
+  <div class="modal fade" id="authModal" tabindex="-1" aria-labelledby="authModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+
+        <!-- Header -->
+        <div class="modal-header">
+          <h5 class="modal-title" id="authModalLabel">Welcome to BookMyShow</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+
+        <!-- Body -->
+        <div class="modal-body">
+
+          <!-- Nav Pills -->
+          <ul class="nav nav-pills mb-4" id="authTab" role="tablist">
+            <li class="nav-item flex-fill text-center">
+              <button class="nav-link active" id="login-tab" data-bs-toggle="tab" data-bs-target="#login" type="button" role="tab">
+                Login
+              </button>
+            </li>
+            <li class="nav-item flex-fill text-center">
+              <button class="nav-link" id="signup-tab" data-bs-toggle="tab" data-bs-target="#signup" type="button" role="tab">
+                Sign Up
+              </button>
+            </li>
+          </ul>
+
+          <!-- Tab Content -->
+          <div class="tab-content">
+
+            <!-- Login Form -->
+            <div class="tab-pane fade show active" id="login" role="tabpanel">
+              <form action="/auth" method="post">
+                <div class="mb-3">
+                  <input type="text" class="form-control" id="login-username" name="username" placeholder="Username" required>
+                </div>
+                <div class="mb-3">
+                  <input type="password" class="form-control" id="login-password" name="password" placeholder="Password" required>
+                </div>
+                <button type="submit" class="btn btn-custom btn-login w-100">Login</button>
+                <a href="#" class="forgot-link">Forgot Password?</a>
+              </form>
+            </div>
+
+            <!-- Signup Form -->
+            <div class="tab-pane fade" id="signup" role="tabpanel">
+              <form action="/auth/signup" method="post">
+                <div class="mb-3">
+                  <input type="text" class="form-control" id="signup-username" name="username" placeholder="Username" required>
+                </div>
+                <div class="mb-3">
+                  <input type="email" class="form-control" id="signup-email" name="email" placeholder="Email" required>
+                </div>
+                <div class="mb-3">
+                  <input type="password" class="form-control" id="signup-password" name="password" placeholder="Password" required>
+                </div>
+                <button type="submit" class="btn btn-custom btn-signup w-100">Create Account</button>
+              </form>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
